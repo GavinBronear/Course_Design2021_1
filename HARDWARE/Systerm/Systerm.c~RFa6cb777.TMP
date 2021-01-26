@@ -1,0 +1,29 @@
+#include "Systerm.h"
+
+void Systerm_Init(void)
+{
+	/**********电机IO口初始化*********/
+	MORTOR_Init();
+	/**********LED灯IO口初始化*********/
+	LED_Init();
+	/**********延时初始化*********/
+	delay_init();	
+//	/**********csb定时中断初始化********/
+//	Ultrasonic_GPIO_Init();
+//	bsp_Ultrasonic_Timer3_Init();
+//	/**********OLED初始化***************/
+//	I2C_Configuration();
+	OLED_Init();
+	OLED_Fill(0x00);
+
+}
+/************LED灯闪烁表示程序在运行****************/
+void LED_HL(void)
+{
+		RLED_ON;
+		GLED_OFF;
+		delay_ms(500);
+		RLED_OFF; 
+		GLED_ON;
+		delay_ms(500);
+}

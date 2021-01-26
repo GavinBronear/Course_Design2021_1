@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\User -I..\CORE -I..\STM32F10x_FWLib\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\OLED -I..\HARDWARE\Systerm -I..\HARDWARE\LED -I..\HARDWARE\DS1302 -I..\HARDWARE\DHT12 -I..\HARDWARE\KEY -I..\HARDWARE\flash
+-I G:\比赛\电赛校赛“星辉杯”\A题\User\RTE
+-I "G:\Keil45 and IAR\keil5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include"
+-I "G:\Keil45 and IAR\keil5\ARM\CMSIS\Include"
+-D__UVISION_VERSION="514" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
+-o .\objects\flash_s.o --omf_browse .\objects\flash_s.crf --depend .\objects\flash_s.d "..\HARDWARE\flash\flash_S.c"

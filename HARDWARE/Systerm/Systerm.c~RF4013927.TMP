@@ -1,0 +1,10 @@
+#include "Systerm.h"
+
+void Systerm_Init(void)
+{
+	/**********电机IO口初始化*********/
+	MORTOR_Init();
+	/**********LED灯IO口初始化*********/
+	LED_Init();
+
+}

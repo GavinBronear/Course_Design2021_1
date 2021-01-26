@@ -1,0 +1,39 @@
+#include "sys.h"
+#include "delay.h"
+
+ void LED_Init(void)
+{
+		GPIO_InitTypeDef GPIO_InitPP;
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
+  // RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE,ENABLE);
+
+ 
+		GPIO_InitPP.GPIO_Mode=GPIO_Mode_Out_PP;
+		GPIO_InitPP.GPIO_Pin=GPIO_Pin_5;
+		GPIO_InitPP.GPIO_Speed=GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB,&GPIO_InitPP);
+	  GPIO_SetBits(GPIOA,GPIO_Pin_8);
+	
+	
+		GPIO_InitPP.GPIO_Mode=GPIO_Mode_Out_PP;
+		GPIO_InitPP.GPIO_Pin=GPIO_Pin_5;
+		GPIO_InitPP.GPIO_Speed=GPIO_Speed_50MHz;
+	  GPIO_Init(GPIOE,&GPIO_InitPP);
+	  GPIO_SetBits(GPIOB,GPIO_Pin_9);
+}				 	
+int main(void)
+{		
+	LED_Init();
+
+	while (1)
+	{
+		GPIO_SetBits(GPIOA,GPIO_Pin_0);
+		GPIO_ResetBits(GPIOA,GPIO_Pin_1);
+		delay_ms(3000);
+		GPIO_ResetBits(GPIOA,GPIO_Pin_0);
+		GPIO_SetBits(GPIOA,GPIO_Pin_1);
+	}	 
+
+}
+
+
